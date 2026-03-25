@@ -7,6 +7,14 @@ import os
 
 app = FastAPI()
 #path = "INV.json"
+app.add_middleware(
+    CORSMiddleware,
+    allow_origins=["*"],  # allow all domains (good for testing)
+    allow_credentials=True,
+    allow_methods=["*"],
+    allow_headers=["*"],
+)
+
 
 client = OpenAI(api_key=os.getenv("OPENAI_API_KEY"))
 
